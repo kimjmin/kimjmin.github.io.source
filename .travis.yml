@@ -8,7 +8,7 @@ env:
   global:
   - GIT_COMMITTER_NAME=kimjmin
   - GIT_AUTHOR_NAME=Jongmin Kim
-  - secure: TIEQYnmcmhiRzugZTakARuIiRjV9kNi8DpUBXr0HFHXgw7OGcRLep7vgrGiEplIAfo164zvZVs84kXv1aTYys9Yb9rA8mG2qVg9w1cU86B1BXOFQAGeZOmdfCEemRTH1YvdQJ9rFMGZp+Z6N95XXP9IdoMoljD9DPvb1j3tNm8Y=
+  - secure: TZGZiDFfkZA7zYch2W5YtUi+lgC7s6mJ2HQgpidv+UZbkeUBcmWrTC3ySu4wKHsxzOQc7xSAvq4QlcswQAVbFA0II3gLVPQVHZsXoymGLgUqc+G4bxDjJRkPrfGU+7TCnWQADkGBSJCaj+z11K8uRX8quQ98lceRDL4b9G91P+0=
 before_script:
 - npm install -g bower
 - npm install -g docpad
