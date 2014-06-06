@@ -1,0 +1,17 @@
+--- yaml
+layout: 'default'
+title: 'Home'
+---
+
+h1 Presentations
+
+ul.list-unstyled.articles
+  each doc in getCollection('presentations').toJSON()
+    li
+      span= doc.date.toDateString()
+      | &raquo;&nbsp;
+      a(href=doc.url, target='_blank')= doc.title
+      | &nbsp;
+      span= 'by ' + doc.author
+      br
+      span!= doc.description

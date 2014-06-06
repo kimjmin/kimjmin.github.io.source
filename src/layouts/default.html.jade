@@ -1,0 +1,76 @@
+- var styles = getBlock('styles')
+- styles.add(['/dependencies/bootstrap/dist/css/bootstrap.min.css'])
+- styles.add(['/dependencies/font-awesome/css/font-awesome.min.css'])
+- styles.add(['/dependencies/highlightjs/styles/github.css'])
+- styles.add(['/styles/style.css'])
+
+- var scripts = getBlock('scripts')
+- scripts.add(['/dependencies/jquery/dist/jquery.min.js'])
+- scripts.add(['/dependencies/bootstrap/dist/js/bootstrap.min.js'])
+- scripts.add(['/dependencies/highlightjs/highlight.pack.js'])
+- scripts.add(['/scripts/script.js'])
+
+doctype 5
+html(lang="en")
+  head
+
+    meta(charset="utf-8")
+    meta(http-equiv="content-type", content="text/html; charset=utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+
+    title= getPreparedTitle()
+    meta(name="description", content=getPreparedDescription())
+    meta(name="keywords", content=getPreparedKeywords())
+    meta(name="author", content=site.author || '')
+
+    != getBlock('meta').toHTML()
+
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    link(rel="shortcut icon", href="/ico/favicon.ico")
+    link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=Open+Sans:600")
+    link(rel="apple-touch-icon-precomposed", sizes="144x144", href="/ico/apple-touch-icon-144-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="114x114", href="/ico/apple-touch-icon-114-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="72x72", href="/ico/apple-touch-icon-72-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", href="/ico/apple-touch-icon-57-precomposed.png")
+
+    != styles.toHTML()
+
+    //if lt IE 9
+      script(async src="/dependencies/html5shiv/dist/html5shiv.js")
+      script(async src="/dependencies/respond/dist/respond.min.js")
+      script(async src="/dependencies/es5-shim/es5-shim.js")
+      script(async src="/dependencies/json3/lib/json3.min.js")
+
+  body
+
+    //if lt IE 7
+      p.browsehappy
+        | You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href="/")= site.title
+        ul.nav.navbar-nav
+          each doc in getCollection('pages').toJSON()
+            - clazz = (document.url === doc.url) ? 'active' : null
+            li(typeof="sioc:Page", about=doc.url, class=clazz)
+              a(href=doc.url, property="dc:title")= doc.title
+    .container
+      section#content.content!= content
+      hr
+      footer
+        div(style="font-style:italic; font-size: 12px") This website was last updated at #{site.date}
+
+    != scripts.toHTML()
+
+    if 'static' === getEnvironment()
+      script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '#{site.google.analytics.trackingId}', 'auto');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');

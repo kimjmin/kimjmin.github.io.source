@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '0.10'
+branches:
+  only:
+    - master
+env:
+  global:
+  - GIT_COMMITTER_NAME=kimjmin
+  - GIT_AUTHOR_NAME=Jongmin Kim
+  - secure: TIEQYnmcmhiRzugZTakARuIiRjV9kNi8DpUBXr0HFHXgw7OGcRLep7vgrGiEplIAfo164zvZVs84kXv1aTYys9Yb9rA8mG2qVg9w1cU86B1BXOFQAGeZOmdfCEemRTH1YvdQJ9rFMGZp+Z6N95XXP9IdoMoljD9DPvb1j3tNm8Y=
+before_script:
+- npm install -g bower
+- npm install -g docpad
+- npm install
+- bower install
+- git remote add target https://$GH_TOKEN@github.com/kimjmin/kimjmin.github.io.git
+script: docpad deploy-ghpages --env static
