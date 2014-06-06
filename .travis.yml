@@ -8,11 +8,13 @@ env:
   global:
   - GIT_COMMITTER_NAME=kimjmin
   - GIT_AUTHOR_NAME=Jongmin Kim
-  - secure: SjG+Fgpo00Tx+dBtZI1XvfnLl4DA78niI+s+hAKFrUplAD/wdwJ7nkqp2FwAoqvSk8VXFeswvgBSUzDS9qVL+9Wi1367PLS0BIb5wLLO+Ki0f/kDfdiViDrdMosNMs34JaaB8PL+R1+AkjN1prs6MmINt1EwuZIh5CV+8fApNWc=
+  - secure: ZQhzOkj8Hce8q51TGAVyDyH7vMoq7TXuVQzTOlcc8u9v2mmsjXL7ceVp865kOl+DN8nwRXVflKqvc/XKzq8ZfYyIjsUQ7LDmPCehxwrYylFfxDOm7IczXx9vcv/AA5R9xq/k1wkOnNQVkIoReLWv3IM1zOZ6nOYuWy8emNARQ3w=
 before_script:
 - npm install -g bower
 - npm install -g docpad
 - npm install
 - bower install
-- git remote add target https://$GH_TOKEN@github.com/kimjmin/kimjmin.github.io.git
+- git remote add target https://e580c8f0582fdd0b0d90543e04ccdd62ae44b523@github.com/kimjmin/kimjmin.github.io.git
 script: docpad deploy-ghpages --env static
+
+git@github.com:elasticsearch-kr/elasticsearch-kr.github.io.source.git
