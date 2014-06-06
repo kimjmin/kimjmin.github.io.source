@@ -3,12 +3,12 @@ node_js:
 - '0.10'
 branches:
   only:
-    - master
+  - master
 env:
   global:
   - GIT_COMMITTER_NAME=kimjmin
   - GIT_AUTHOR_NAME=Jongmin Kim
-  - secure: TZGZiDFfkZA7zYch2W5YtUi+lgC7s6mJ2HQgpidv+UZbkeUBcmWrTC3ySu4wKHsxzOQc7xSAvq4QlcswQAVbFA0II3gLVPQVHZsXoymGLgUqc+G4bxDjJRkPrfGU+7TCnWQADkGBSJCaj+z11K8uRX8quQ98lceRDL4b9G91P+0=
+  - secure: SjG+Fgpo00Tx+dBtZI1XvfnLl4DA78niI+s+hAKFrUplAD/wdwJ7nkqp2FwAoqvSk8VXFeswvgBSUzDS9qVL+9Wi1367PLS0BIb5wLLO+Ki0f/kDfdiViDrdMosNMs34JaaB8PL+R1+AkjN1prs6MmINt1EwuZIh5CV+8fApNWc=
 before_script:
 - npm install -g bower
 - npm install -g docpad
