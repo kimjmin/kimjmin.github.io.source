@@ -1,4 +1,4 @@
-ELASTICSEARCH KOREA
+Jongmin Kim
 ===================
 
 [![Build Status](https://travis-ci.org/kimjmin/kimjmin.github.io.source.svg?branch=master)](https://travis-ci.org/kimjmin/kimjmin.github.io.source)
